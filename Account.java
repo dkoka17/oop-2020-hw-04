@@ -20,5 +20,37 @@ public class Account {
 		this.balance = balance;
 		transactions = 0;
 	}
-	
+
+	public Account( int id, int balance) {
+		this.id = id;
+		this.balance = balance;
+		transactions = 0;
+	}
+
+	public int money(){
+		return this.balance;
+	}
+
+	public void addMoney(int money){
+		this.balance+=money;
+		transactions+=1;
+	}
+
+	public void minusMoney(int money){
+		this.balance-=money;
+		transactions+=1;
+	}
+
+	public int id(){
+		return this.id;
+	}
+
+	@Override
+	public String toString() {
+		return "Account{" +
+				"id=" + id +
+				", balance=" + balance +
+				", transactions=" + transactions +
+				'}';
+	}
 }

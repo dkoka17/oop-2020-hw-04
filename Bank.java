@@ -7,8 +7,24 @@
 
 import java.io.*;
 import java.util.*;
+import java.util.concurrent.CountDownLatch;
 
 public class Bank {
+
+	private class worker extends Thread{
+		private CountDownLatch sig;
+
+		public worker(CountDownLatch sig){
+			this.sig = sig;
+		}
+
+		public void run(){
+
+		}
+	}
+
+
+
 	public static final int ACCOUNTS = 20;	 // number of accounts
 	
 
@@ -73,8 +89,11 @@ public class Bank {
 		if (args.length >= 2) {
 			numWorkers = Integer.parseInt(args[1]);
 		}
+
 		
 		// YOUR CODE HERE
+
+
 	}
 }
 
