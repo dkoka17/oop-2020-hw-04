@@ -1,3 +1,5 @@
+import java.util.Objects;
+
 // Transaction.java
 /*
  (provided code)
@@ -15,7 +17,23 @@ public class Transaction {
 		this.amount = amount;
 	}
 
-	public String toString() {
-		return("from:" + from + " to:" + to + " amt:" + amount);
+	public int getAmount(){
+   		return this.amount;
 	}
+	public int getFrom(){
+		return this.from;
+	}
+	public int getTo(){
+		return this.to;
+	}
+
+	@Override
+	public boolean equals(Object o) {
+		Transaction that = (Transaction) o;
+		return from == that.from &&
+				to == that.to &&
+				amount == that.amount;
+	}
+
+
 }

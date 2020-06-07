@@ -13,13 +13,7 @@ public class Account {
 	// have a pointer to its Bank.
 	// (a suggestion, not a requirement)
 	private Bank bank;  
-	
-	public Account(Bank bank, int id, int balance) {
-		this.bank = bank;
-		this.id = id;
-		this.balance = balance;
-		transactions = 0;
-	}
+
 
 	public Account( int id, int balance) {
 		this.id = id;
@@ -27,30 +21,19 @@ public class Account {
 		transactions = 0;
 	}
 
-	public int money(){
-		return this.balance;
-	}
 
-	public void addMoney(int money){
+	public synchronized void addMoney(int money){
 		this.balance+=money;
 		transactions+=1;
 	}
 
-	public void minusMoney(int money){
+	public synchronized void minusMoney(int money){
 		this.balance-=money;
 		transactions+=1;
 	}
 
-	public int id(){
-		return this.id;
-	}
-
 	@Override
 	public String toString() {
-		return "Account{" +
-				"id=" + id +
-				", balance=" + balance +
-				", transactions=" + transactions +
-				'}';
+		return ("acct:" + id +" bal:" + balance + " trans:" + transactions);
 	}
 }
